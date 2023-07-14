@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>This is profile</h1>
+    <div class="container">
+        <h2>Basic Table</h2>
+       <a class="btn btn-primary" href="{% url 'user_profile_update' %}">Edit</a>        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>UserName</th>
+              <th>Full Name</th>
+              <th>Profession</th>
+              <th>Age</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for info in user_profile_query %}
+            <tr>
+              <td>{{info.user.username}}</td>
+              <td>{{info.full_name}}</td>
+              <td>{{info.profession}}</td>
+              <td>{{info.age}}</td>
+              <td>{{info.gender}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+{% endblock content %}
